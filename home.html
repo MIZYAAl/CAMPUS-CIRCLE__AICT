@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMPUS CIRCLE — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="home-page" class="app-shell">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img class="sidebar-logo-img" src="logo.png" alt="Nexus Social">
+      </div>
+      <ul class="nav-list" id="sidebar-nav">
+        <!-- rendered by JS -->
+      </ul>
+      <div class="sidebar-user" id="sidebar-user">
+        <!-- rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="main-feed">
+      <div class="feed-header">
+        <div class="feed-header-inner">
+          <span class="feed-title">Home</span>
+        </div>
+        <div class="feed-tabs">
+          <div class="feed-tab active" data-tab="for-you">For you</div>
+          <div class="feed-tab" data-tab="following">Following</div>
+        </div>
+      </div>
+
+      <!-- Compose Box -->
+      <div class="compose-box">
+        <div id="compose-avatar" class="compose-avatar"></div>
+        <div class="compose-right">
+          <textarea class="compose-textarea" id="compose-text" placeholder="What's happening?" rows="2"></textarea>
+          <img id="compose-img-preview" style="display:none;max-height:200px;border-radius:12px;margin-top:8px;width:100%;object-fit:cover" alt="">
+          <div class="compose-actions">
+            <div class="compose-icons">
+              <button class="compose-icon-btn" id="compose-img-btn" title="Add image">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </button>
+              <button class="compose-icon-btn" title="Emoji">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </button>
+            </div>
+            <button class="btn-submit" id="compose-submit" disabled>Post</button>
+          </div>
+          <input type="file" id="compose-img-input" accept="image/*" style="display:none">
+        </div>
+      </div>
+
+      <!-- Feed Posts -->
+      <div id="feed-posts"></div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search-input" placeholder="Search people">
+        <div class="search-results" id="search-results"></div>
+      </div>
+
+      <!-- Campus News Widget -->
+      <div class="widget-card">
+        <div class="widget-title">Campus News</div>
+        <div id="campus-news"></div>
+        <div class="widget-show-more">Show more</div>
+      </div>
+
+      <!-- Suggested Users Widget -->
+      <div class="widget-card">
+        <div class="widget-title">Who to follow</div>
+        <div id="suggest-users"></div>
+        <div class="widget-show-more">Show more</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Chat Panel -->
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <span>Messages</span>
+      <div class="chat-header-right">
+        <button class="chat-icon-btn" id="chat-close-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="chat-conversations" id="chat-list"></div>
+    <div class="chat-thread" id="chat-thread"></div>
+  </div>
+
+  <div class="notif-modal-overlay" id="notif-modal">
+    <div class="notif-modal">
+      <div class="notif-modal-header">
+        <button class="notif-modal-back" id="notif-modal-back">←</button>
+        <span>Notifications</span>
+        <button class="notif-modal-close" id="notif-modal-close">✕</button>
+      </div>
+      <div class="notif-panel" id="notif-panel"></div>
+    </div>
+  </div>
+
+  <!-- Followers/Following Modal -->
+  <div class="follow-modal-overlay" id="follow-modal">
+    <div class="follow-modal">
+      <div class="follow-modal-header">
+        <button class="follow-modal-back" id="follow-modal-back">←</button>
+        <span class="follow-modal-title" id="follow-modal-title">Follow</span>
+        <button class="follow-modal-settings" id="follow-modal-settings">⚙️</button>
+      </div>
+      <div class="follow-modal-tabs">
+        <div class="follow-modal-tab active" data-tab="suggested">Who to follow</div>
+        <div class="follow-modal-tab" data-tab="creators">Creators for you</div>
+      </div>
+      <div class="follow-modal-subtitle" id="follow-modal-subtitle">Suggested for you</div>
+      <div class="follow-modal-list" id="follow-modal-list"></div>
+    </div>
+  </div>
+
+  <div class="reply-modal-overlay" id="reply-modal">
+    <div class="reply-modal">
+      <div class="reply-modal-header">
+        <span class="reply-modal-title">Reply</span>
+        <button class="reply-modal-close" id="reply-modal-close">✕</button>
+      </div>
+      <div class="reply-modal-body">
+        <div class="reply-summary" id="reply-summary"></div>
+        <div class="reply-list" id="reply-list"></div>
+        <textarea class="reply-input" id="reply-input" placeholder="Write your reply..." rows="3"></textarea>
+        <button class="btn-submit reply-send-btn" id="reply-send-btn" disabled>Send reply</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

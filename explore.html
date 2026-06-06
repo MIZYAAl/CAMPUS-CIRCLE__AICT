@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Explore — Campus Circle</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{background:#0f1724;color:#e6eef8;font-family:Inter,system-ui;padding:20px}
+    .wrap{max-width:900px;margin:0 auto}
+    .news-item{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;margin-bottom:12px}
+    .meta{color:#94a3b8;font-size:13px;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Explore — Campus News</h1>
+    <div id="explore-news-list"></div>
+  </div>
+  <script type="module" src="app.js"></script>
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderExplorePage === 'function') renderExplorePage();
+    });
+  </script>
+</body>
+</html>

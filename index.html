@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Circle — Sign In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="auth-page" class="auth-page-split">
+    <!-- Left Side -->
+    <div class="auth-left">
+      <div class="auth-left-content">
+        <div class="auth-logo-badge">
+          <span style="color:#0A0E27;" class="logo-text">CAMPUS</span>
+          <span class="logo-text">CIRCLE</span>
+        </div>
+        <!-- <h1 class="auth-left-title">Campus Circle</h1> -->
+        <p class="auth-left-subtitle">Campus Circle is your campus social network. Connect with classmates, share updates, and find local events.</p>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="auth-right">
+      <div class="auth-right-content">
+        <h2 class="auth-right-title">Welcome back</h2>
+        <p class="auth-right-subtitle">Sign in to continue your campus connections.</p>
+
+        <div class="auth-tabs">
+          <div class="auth-tab active" data-tab="login">Login</div>
+          <div class="auth-tab" data-tab="register">Register</div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form">
+          <div class="form-group">
+            <label class="form-label">Student ID</label>
+            <input class="form-input" type="text" id="login-username" placeholder="Enter your Student ID" style="text-transform: uppercase;">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input class="form-input" type="password" id="login-password" placeholder="Enter password">
+          </div>
+          <button class="btn-auth" id="login-submit">Login</button>
+          <div class="auth-error" id="login-error"></div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" style="display:none">
+          <div class="form-group">
+            <label class="form-label">Display Name</label>
+            <input class="form-input" type="text" id="reg-displayname" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Student ID</label>
+            <input class="form-input" type="text" id="reg-studentid" placeholder="e.g. SP26BSSE0028" style="text-transform: uppercase;">
+            <div class="form-helper-text">Format: 2 letters + 2 digits + 4 letters + 4 digits (e.g., SP26BSSE0028)</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input class="form-input" type="text" id="reg-username" placeholder="Choose a username (min. 4 characters)">
+            <div class="form-helper-text">Username must be at least 4 characters long</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input class="form-input" type="password" id="reg-password" placeholder="Create a password (min. 6 characters)">
+            <div class="form-helper-text">Password must be at least 6 characters long</div>
+          </div>
+          <button class="btn-auth" id="register-submit">Create Account</button>
+          <div class="auth-error" id="register-error"></div>
+          <div class="auth-success" id="register-success"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
