@@ -1,4 +1,4 @@
-**Nexus Social — Lightweight Frontend**
+**CAMPUS CIRCLE — Lightweight Frontend**
 
 A small static social-feed UI built with plain HTML, CSS and JavaScript. Intended as a simple demo/assignment project you can host as a static site.
 
